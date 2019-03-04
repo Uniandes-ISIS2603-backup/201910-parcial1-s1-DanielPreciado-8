@@ -5,16 +5,35 @@
  */
 package co.edu.uniandes.csw.recipes.entities;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author CesarF
  */
 @Entity
-public class RecipeEntity extends BaseEntity {
+public class RecipeEntity extends BaseEntity implements Serializable {
     private String name;
     private String description;
+    @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<IngredientEntity> ingredients = new ArrayList<IngredientEntity>();
+
+    
+    
+    
+    
+    public List<IngredientEntity> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(List<IngredientEntity> ingredients) {
+        this.ingredients = ingredients;
+    }
     
     public RecipeEntity(){
     

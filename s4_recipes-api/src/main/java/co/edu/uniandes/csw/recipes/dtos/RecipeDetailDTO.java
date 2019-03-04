@@ -6,12 +6,23 @@
 package co.edu.uniandes.csw.recipes.dtos;
 
 import co.edu.uniandes.csw.recipes.entities.RecipeEntity;
+import java.util.List;
 
 /**
  *
  * @author CesarF
  */
 public class RecipeDetailDTO extends RecipeDTO {
+    
+     private List<IngredientDTO> ingredients;
+
+    public List<IngredientDTO> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(List<IngredientDTO> ingredients) {
+        this.ingredients = ingredients;
+    }
     
     public RecipeDetailDTO(){
     

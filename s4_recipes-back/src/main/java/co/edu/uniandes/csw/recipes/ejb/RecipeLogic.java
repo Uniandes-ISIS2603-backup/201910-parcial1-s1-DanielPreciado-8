@@ -41,6 +41,14 @@ public class RecipeLogic {
         {
             throw new BusinessLogicException("no cumple las reglas de negocio para el nombre de la receta, no pueden haber 2 recetas  con el mismo nombre");
         }
+        if(recipeEntity.getIngredients() == null )
+        {
+            throw new BusinessLogicException("no cumple las reglas de negocio para el nombre de la receta, no pueden haber 2 recetas  con el mismo nombre");
+        }
+        if(recipeEntity.getIngredients().get(0) == null )
+        {
+            throw new BusinessLogicException("no cumple las reglas de negocio para el nombre de la receta, no pueden haber 2 recetas  con el mismo nombre");
+        }
         
         persistence.createRecipe(recipeEntity);
         
